@@ -4,6 +4,10 @@ class CheckDigit{
     public static $even_number_sum = 0;
     public static $odd_number_sum = 0;
 
+    /**
+     * @param $val_number
+     * @return int
+     */
     public static function main($val_number="")
     {
         $checkdigit_number =null;
@@ -13,6 +17,10 @@ class CheckDigit{
         return $checkdigit_number;
     }
 
+    /**
+     * @param $number
+     * @return array
+     */
     public static function number($number=""){
         $number = (string)$number;
         $response_number = [];
@@ -23,6 +31,10 @@ class CheckDigit{
         return  array_reverse($response_number);
     }
 
+    /**
+     * @param $flg
+     * @return int
+     */
     public static function sum($flg=true){
         //$flg true=偶数 false=奇数
         foreach(self::$array_number as $key=>$val){
@@ -41,6 +53,10 @@ class CheckDigit{
         return $flg===true ? (self::$even_number_sum * 3):self::$odd_number_sum;
     }
 
+    /**
+     * @param $number
+     * @return int
+     */
     public static function checkdigit_number($number=""){
         $number = (string)$number;
         return (int)mb_substr($number,(strlen($number) -1),1,"utf-8")===0?0:10 - (int)mb_substr($number,(strlen($number) -1),1,"utf-8");
